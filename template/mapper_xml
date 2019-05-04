@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="[package_mapper_class].[classNameMapper]">
+
+    <resultMap id="BaseResultMap" type="[package_entity].[classNameEntity]">
+        id--<id column="[column]" jdbcType="[jdbcType]" property="[property]" />
+        --id
+        result--<result column="[column]" jdbcType="[jdbcType]" property="[property]" />
+        --result
+    </resultMap>
+
+    <insert id="insert" parameterType="[package_entity].[classNameEntity]" useGeneratedKeys="true" keyProperty="id">
+        insert into [tableName]
+        ([columns])
+        values
+        (values--#{[property],jdbcType=[jdbcType]}--values)
+    </insert>
+    <update id="update" parameterType="[package_entity].[classNameEntity]">
+        update [tableName]
+        <set>
+          set--[column] = #{[property], jdbcType=[jdbcType]}
+          --set
+        </set>
+        where idWhere--[idColumn] = #{[idProperty],jdbcType=[idJdbcType]}--idWhere
+    </update>
+    <delete id="delete" parameterType="[idParameterType]">
+        delete from [tableName]
+        where [idWhere]
+    </delete>
+    <select id="queryById" resultMap="BaseResultMap" parameterType="[idParameterType]">
+        select [columns]
+        from [tableName]
+        where [idWhere]
+    </select>
+    <select id="query" resultMap="BaseResultMap" parameterType="java.util.Map" flushCache="true" useCache="false">
+        select [columns]
+        from [tableName]
+        <where>
+            selectIf--<if test="[property] != null[strEmpty]">
+                and [column] = #{[property], jdbcType=[jdbcType]}
+            </if>
+            --selectIf
+        </where>
+    </select>
+    <select id="queryCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+        select count(1)
+        from [tableName]
+        <where>
+            [selectIf]
+        </where>
+    </select>
+</mapper>

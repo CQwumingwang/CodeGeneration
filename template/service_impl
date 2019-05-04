@@ -1,0 +1,62 @@
+package [package_service_impl];
+
+import java.util.Map;
+import java.util.HashMap;
+import [package_entity].[classNameEntity];
+import [package_mapper_class].[classNameMapper];
+import [package_service].[classNameService];
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+[import]
+
+
+/**
+ * @ClassName [classNameServiceImpl]
+ * @Description TODO [comment]
+ * @Author [author]
+ * @Date [dateTime]
+ * @Version 1.0
+ */
+ @Slf4j
+ @Service
+public class [classNameServiceImpl] implements [classNameService] {
+
+    @Autowired
+    private [classNameMapper] [classNameMapperLower];
+
+    @Override
+    public Object insert([classNameEntity] [classNameEntityLower]){
+        [classNameMapperLower].insert([classNameEntityLower]);
+        log.info("[classNameEntityLower] insert success!");
+        return null;
+    }
+
+    @Override
+    public Object update([classNameEntity] [classNameEntityLower]){
+        [classNameMapperLower].update([classNameEntityLower]);
+        log.info("[classNameEntityLower] update success!");
+        return null;
+    }
+
+    @Override
+    public Object delete([idTypeName] [idCName]){
+        [classNameMapperLower].delete([idCName]);
+        log.info("[classNameEntityLower] delete success! [idCName]={}",[idCName]);
+        return null;
+    }
+
+    @Override
+    public Object queryById([idTypeName] [idCName]){
+        return [classNameMapperLower].queryById([idCName]);
+    }
+
+    @Override
+	public Object queryByPage(Map<String,Object> map){
+	    Map<String,Object> resmap = new HashMap<>();
+	    resmap.put("rows",[classNameMapperLower].query(map));
+	    resmap.put("total",[classNameMapperLower].queryCount(map));
+	    return resmap;
+	}
+
+}

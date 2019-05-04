@@ -1,0 +1,52 @@
+package [package_service];
+
+import java.util.Map;
+import [package_entity].[classNameEntity];
+[import]
+
+
+/**
+ * @ClassName [classNameService]
+ * @Description TODO [comment]
+ * @Author [author]
+ * @Date [dateTime]
+ * @Version 1.0
+ */
+public interface [classNameService] {
+
+    /**
+     * 新增
+     * @param [classNameEntityLower]
+     * @return
+     */
+    Object insert([classNameEntity] [classNameEntityLower]);
+
+    /**
+     * 更新
+     * @param [classNameEntityLower]
+     * @return
+     */
+    Object update([classNameEntity] [classNameEntityLower]);
+
+    /**
+     * 删除
+     * @param [idCName]
+     * @return
+     */
+    Object delete([idTypeName] [idCName]);
+
+    /**
+     * 根据ID查询
+     * @param [idCName]
+     * @return
+     */
+    Object queryById([idTypeName] [idCName]);
+
+    /**
+     * 分页查询
+     * @param map
+     * @return
+     */
+	Object queryByPage(Map<String,Object> map);
+
+}

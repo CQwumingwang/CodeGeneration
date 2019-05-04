@@ -1,0 +1,31 @@
+package [package_mapper_class];
+
+import org.apache.ibatis.annotations.Param;
+import java.util.List;
+import java.util.Map;
+import [package_entity].[classNameEntity];
+[import]
+
+
+/**
+ * @ClassName [classNameMapper]
+ * @Description TODO [comment]
+ * @Author [author]
+ * @Date [dateTime]
+ * @Version 1.0
+ */
+public interface [classNameMapper]{
+
+    Integer insert([classNameEntity] [classNameEntityLower]);
+
+    Integer update([classNameEntity] [classNameEntityLower]);
+
+    Integer delete(@Param("[idCName]") [idTypeName] [idCName]);
+
+    [classNameEntity] queryById(@Param("[idCName]") [idTypeName] [idCName]);
+
+	List<[classNameEntity]> query(Map<String,Object> map);
+
+	Integer queryCount(Map<String,Object> map);
+
+}

@@ -1,0 +1,19 @@
+package [package_entity];
+
+import lombok.Data;
+[import]
+
+/**
+ * @ClassName [classNameEntity]
+ * @Description TODO [comment]
+ * @Author [author]
+ * @Date [dateTime]
+ * @Version 1.0
+ */
+@Data
+public class [classNameEntity] {
+	
+    field--/**[deText]*/
+    private [typeName] [cName];
+    --field
+}
