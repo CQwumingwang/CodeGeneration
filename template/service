@@ -36,6 +36,13 @@ public interface [classNameService] {
     Object delete([idTypeName] [idCName]);
 
     /**
+     * 批量删除
+     * @param [idCName]s
+     * @return
+     */
+    Object deleteByIds([idTypeName][] [idCName]s);
+
+    /**
      * 根据ID查询
      * @param [idCName]
      * @return

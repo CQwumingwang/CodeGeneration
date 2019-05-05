@@ -22,6 +22,8 @@ public interface [classNameMapper]{
 
     Integer delete(@Param("[idCName]") [idTypeName] [idCName]);
 
+    Integer deleteByIds([idTypeName][] [idCName]s);
+
     [classNameEntity] queryById(@Param("[idCName]") [idTypeName] [idCName]);
 
 	List<[classNameEntity]> query(Map<String,Object> map);

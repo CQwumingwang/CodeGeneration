@@ -36,7 +36,7 @@ public class CodeGenerator {
         /**代码作者*/
         Constants.AUTHOR = "wumingwang";
         /**模板目录，不配置时使用默认模板，非空*/
-        Constants.TEMPLATE_PATH = "D:\\IDEAProjects\\codegeneration\\template\\";
+        Constants.TEMPLATE_PATH = "D:\\IDEA_GIT\\CodeGeneration\\template\\";
         /**生成代码目录，不配置时使用程序所在目录的根目录generation文件夹下，非空*/
         Constants.DIRECTORY = "D:\\data\\generation\\";
         /**数据表名或字段分隔符，不配置时默认为下划线'_'，非空*/
@@ -222,7 +222,8 @@ public class CodeGenerator {
                         .replace("id--"+idNode+"--id",idSb).replace("result--"+resultNode+"--result",resultSb)
                         .replace("values--"+valuesNode+"--values",valuesSb).replace("set--"+setNode+"--set",setSb)
                         .replace("idWhere--"+idWhereNode+"--idWhere",idWhere).replace("[idWhere]",idWhere)
-                        .replace("selectIf--"+selectIfNode+"--selectIf",selectIfSb).replace("[selectIf]",selectIfSb);
+                        .replace("selectIf--"+selectIfNode+"--selectIf",selectIfSb).replace("[selectIf]",selectIfSb)
+                        .replace("[idColumn]",idCName).replace("[idJdbcType]",idJdbcType);
                 FileUtils.writeFile(mapperXmlContent,Constants.PACKAGE_MAPPER_XML,classNameMapper+".xml");
 
                 serviceContent = serviceContent.replace("[idCName]",idProperty)
@@ -230,7 +231,8 @@ public class CodeGenerator {
                 FileUtils.writeFile(serviceContent,packageService,classNameService+".java");
 
                 serviceImplContent = serviceImplContent.replace("[idCName]",idProperty)
-                        .replace("[idTypeName]",FieldComparison.getField(idTypeName)).replace("[import]",idImport);
+                        .replace("[idTypeName]",FieldComparison.getField(idTypeName)).replace("[import]",idImport)
+                        .replace("[idCNameUpper]",StringUtils.toUpperCaseFirstOne(idProperty));
                 FileUtils.writeFile(serviceImplContent,packageServiceImpl,classNameServiceImpl+".java");
                 rsc.close();
             }

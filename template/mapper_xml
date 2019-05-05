@@ -27,6 +27,11 @@
         delete from [tableName]
         where [idWhere]
     </delete>
+    <delete id="deleteByIds">
+        delete from [tableName]
+        where [idColumn] in
+        <foreach item="id" collection="array" open="(" separator="," close=")">#{id,jdbcType=[idJdbcType]}</foreach>
+    </delete>
     <select id="queryById" resultMap="BaseResultMap" parameterType="[idParameterType]">
         select [columns]
         from [tableName]

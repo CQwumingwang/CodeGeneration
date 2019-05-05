@@ -18,8 +18,9 @@ import org.springframework.stereotype.Service;
  * @Date [dateTime]
  * @Version 1.0
  */
- @Slf4j
- @Service
+
+@Slf4j
+@Service
 public class [classNameServiceImpl] implements [classNameService] {
 
     @Autowired
@@ -28,14 +29,14 @@ public class [classNameServiceImpl] implements [classNameService] {
     @Override
     public Object insert([classNameEntity] [classNameEntityLower]){
         [classNameMapperLower].insert([classNameEntityLower]);
-        log.info("[classNameEntityLower] insert success!");
+        log.info("[classNameEntityLower] insert success! [idCName]={}",[classNameEntityLower].get[idCNameUpper]());
         return null;
     }
 
     @Override
     public Object update([classNameEntity] [classNameEntityLower]){
         [classNameMapperLower].update([classNameEntityLower]);
-        log.info("[classNameEntityLower] update success!");
+        log.info("[classNameEntityLower] update success! [idCName]={}",[classNameEntityLower].get[idCNameUpper]());
         return null;
     }
 
@@ -43,6 +44,13 @@ public class [classNameServiceImpl] implements [classNameService] {
     public Object delete([idTypeName] [idCName]){
         [classNameMapperLower].delete([idCName]);
         log.info("[classNameEntityLower] delete success! [idCName]={}",[idCName]);
+        return null;
+    }
+
+    @Override
+    Object deleteByIds([idTypeName][] [idCName]s){
+        [classNameMapperLower].deleteByIds([idCName]s);
+        log.info("[classNameEntityLower] deleteByIds success! [idCName]s={}",[idCName]s);
         return null;
     }
 
